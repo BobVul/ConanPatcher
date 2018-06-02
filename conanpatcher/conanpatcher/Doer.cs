@@ -66,6 +66,7 @@ namespace conanpatcher
                 try
                 {
                     string modlistPath = Path.GetFullPath(Path.Combine(SharedState.PathInfo.GameFolder, "ConanSandbox", "Mods", "modlist.txt"));
+                    Directory.CreateDirectory(Path.GetDirectory(modlistPath));
                     File.WriteAllText(modlistPath, WebHelper.GetDocumentContents(WebRequest.Create(c.ModlistUrl)));
                 }
                 catch(Exception e)
